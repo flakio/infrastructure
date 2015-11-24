@@ -70,6 +70,9 @@ ensureAzureNetwork
 # Update Ubuntu and install all necessary binaries
 ###################################################
 
+# Configure the package manager.
+sudo dpkg --configure -a
+
 time sudo apt-get -y update
 # kill the waagent and uninstall, otherwise, adding the desktop will do this and kill this script
 sudo pkill waagent
@@ -132,8 +135,8 @@ time sudo update-alternatives --install /usr/bin/node nodejs /usr/bin/nodejs 100
 ####################
 # Setup build agent
 ####################
-sudo npm install vsoagent-installer -g
+time sudo npm install vsoagent-installer -g
 mkdir TestingAgent
 cd TestingAgent
 vsoagent-installer
-node agent/vsoagent.js -username=YOUR_USERNAME -password=YOUR_PASSWORD_HERE
+node agent/vsoagent.js -username=dend@outlook.com -password=yhpuiiqjy5jfang2kcx5papimnm5cvzyaruyu2mcbpzmze546dpa -serverUrl=https://danielfe.visualstudio.com
