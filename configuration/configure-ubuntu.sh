@@ -126,6 +126,10 @@ echo "gnome-terminal &" | sudo tee -a $HOMEDIR/.vnc/xstartup
 
 sudo -i -u $AZUREUSER $HOMEDIR/bin/startvnc
 
+# Install proper Node
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 #####################
 # setup the Azure CLI
 #####################
@@ -135,8 +139,9 @@ time sudo update-alternatives --install /usr/bin/node nodejs /usr/bin/nodejs 100
 ####################
 # Setup build agent
 ####################
+
 time sudo npm install vsoagent-installer -g
 mkdir TestingAgent
 cd TestingAgent
 vsoagent-installer
-node agent/vsoagent.js -username=dend@outlook.com -password=yhpuiiqjy5jfang2kcx5papimnm5cvzyaruyu2mcbpzmze546dpa -serverUrl=https://danielfe.visualstudio.com
+node agent/vsoagent.js --u dend@outlook.com --p yhpuiiqjy5jfang2kcx5papimnm5cvzyaruyu2mcbpzmze546dpa --s https://danielfe.visualstudio.com --a azure-jumper-vm --l default
