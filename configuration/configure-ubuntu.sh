@@ -144,4 +144,4 @@ time sudo npm install vsoagent-installer -g
 mkdir TestingAgent
 cd TestingAgent
 vsoagent-installer
-su $AZUREUSER -c node agent/vsoagent.js --u dend@outlook.com --p yhpuiiqjy5jfang2kcx5papimnm5cvzyaruyu2mcbpzmze546dpa --s https://danielfe.visualstudio.com --a azure-jumper-vm --l default
+su $AZUREUSER -c 'node agent/vsoagent.js --u dend@outlook.com --p yhpuiiqjy5jfang2kcx5papimnm5cvzyaruyu2mcbpzmze546dpa --s https://danielfe.visualstudio.com --a azure-jumper-vm --l default'
