@@ -1,0 +1,23 @@
+{
+  "id": "flakiogateway",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "flakio/gateway:7",
+      "privileged": false,
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "parameters": []
+    }
+  },
+  "instances": 2,
+  "cpus": 0.1,
+  "mem": 128,
+  "constraints": [["hostname", "UNIQUE"]]
+}
