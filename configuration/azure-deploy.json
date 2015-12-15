@@ -8,6 +8,19 @@
         "description": "Unique DNS Name Prefix for the Storage Account where the Virtual Machine's disks will be placed.  StorageAccounts may contain at most variables('vmsPerStorageAccount')"
       }
     },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location where the Virtual Machine will be deployed."
+      },
+      "allowedValues": [
+        "West US",
+        "East US",
+        "Southeast Asia",
+        "East Asia",
+        "West Europe"
+      ]
+    },
     "adminUsername": {
       "type": "string",
       "defaultValue": "azureuser",
@@ -294,7 +307,7 @@
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "[concat(variables('vmName'),'/', variables('extensionName'))]",
       "apiVersion": "2015-05-01-preview",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
       ],
