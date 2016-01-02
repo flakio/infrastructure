@@ -91,6 +91,15 @@
           }
         }
       }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat('flakio', uniqueString(resourceGroup().id, deployment().name))]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "Standard_GRS"
+      }
     }
   ],
   "outputs": {
