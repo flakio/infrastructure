@@ -4,7 +4,7 @@
 Managing configuration
 
 ## Management
-After provisioning a new ACS cluster wiht the mesos orchestrator, we can connect with ssh client with port forwarding setup and agent forwarding.
+After provisioning a new Mesos cluster using the ACS mesos orchestrator option, we can connect with ssh client with port forwarding setup and agent forwarding.
 
 `ssh {user}@{dnslabel}mgmt.westus.cloudapp.azure.com -A -p 2200 -L 8080:localhost:8080 -L 5050:master.mesos:5050 -L 4400:localhost:4400`
 
