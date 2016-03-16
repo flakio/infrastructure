@@ -10,7 +10,7 @@ After provisioning a new Mesos cluster using the ACS mesos orchestrator option, 
 
 The `-L` options forward local ports to endpoints and ports on the target system. Mesos is not listening on local host so we need to use the master IP address instead.  The `-A` option enables agent forwarding and allows us to connect to other systems in the cluster.
 
-## Gateway
+## Marathon-lb
 A marathon-lb instance needs to be deployed to handle incoming traffic.  We will deploy two instances in the load balancer and rely on the fact that the Azure load balancer will remove instances from load balancer rotation that do not have a gateway on them. We still need to be careful that we do not unintentionally expose another service on these LB ports.
 
 The gateway application can be deployed using the following command
