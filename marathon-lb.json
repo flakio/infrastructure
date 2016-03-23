@@ -1,5 +1,5 @@
 {
-    "id": "public-marathon-lb",
+    "id": "external-marathon-lb",
     "cmd": null,
     "args": [
       "sse",
