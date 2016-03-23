@@ -1,5 +1,5 @@
 {
-    "id": "ingress-marathon-lb",
+    "id": "public-marathon-lb",
     "cmd": null,
     "args": [
       "sse",
