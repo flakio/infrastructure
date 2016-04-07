@@ -17,6 +17,6 @@ A marathon-lb instance needs to be deployed to handle incoming traffic. We will 
 
 The following command can be used to deploy marathon-lb on the cluster. Run the command from the master or a client with appropriate ssh port forwarding configured.
 ```
-curl https://raw.githubusercontent.com/flakio/infrastructure/master/marathon-lb.json | curl -qs -XPOST localhost:8080/v2/apps -d@- -H "Content-Type: application/json"
+curl https://raw.githubusercontent.com/flakio/infrastructure/master/marathon-lb.json | curl -qs -XPOST localhost:8080/marathon/v2/apps -d@- -H "Content-Type: application/json"
 ```
 
