@@ -143,18 +143,6 @@
         "forcePullImage": false
       }
     },
-    "healthChecks": [
-      {
-        "path": "/_haproxy_health_check",
-        "protocol": "HTTP",
-        "portIndex": 2,
-        "gracePeriodSeconds": 300,
-        "intervalSeconds": 60,
-        "timeoutSeconds": 20,
-        "maxConsecutiveFailures": 3,
-        "ignoreHttp1xx": false
-      }
-    ],
     "dependencies": [],
     "upgradeStrategy": {
       "minimumHealthCapacity": 1,
