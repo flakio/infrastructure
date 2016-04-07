@@ -13,10 +13,16 @@ The `-L` options forward local ports to endpoints and ports on the target system
 Current deployments of ACS mesos orchestrator include a proxy for connecting to the various framework UI.  We only need to forward one port using the following `ssh -L 8080:localhost:80 -N trent@trentestmgmt.westus.cloudapp.azure.com -p 2200`, and then we can connect to the various frameworks using `http://localhost:8080/marathon` for example.
 
 ## Marathon-lb
-A marathon-lb instance needs to be deployed to handle incoming traffic. We will deploy two instances in the load balancer and rely on the fact that the Azure load balancer will remove instances from load balancer rotation that do not have a gateway on them. We still need to be careful that we do not unintentionally expose another service on these LB ports.
+A marathon-lb instance needs to be deployed to handle incoming traffic. We still need to be careful that we do not unintentionally expose another service on these LB ports.
 
 The following command can be used to deploy marathon-lb on the cluster. Run the command from the master or a client with appropriate ssh port forwarding configured.
 ```
 curl https://raw.githubusercontent.com/flakio/infrastructure/master/marathon-lb.json | curl -qs -XPOST localhost:8080/marathon/v2/apps -d@- -H "Content-Type: application/json"
 ```
+## Gateway
+An NGINX gateway is used for routing external traffic from the Azure load balancers to the correct internal marathon-lb service port. We will deploy two instances in the load balancer and rely on the fact that the Azure load balancer will remove instances from load balancer rotation that do not have a gateway on them.
 
+The following command can be used to deploy marathon-lb on the cluster. Run the command from the master or a client with appropriate ssh port forwarding configured.
+```
+curl https://raw.githubusercontent.com/flakio/infrastructure/master/gateway/marathon.json | curl -qs -XPOST localhost:8080/marathon/v2/apps -d@- -H "Content-Type: application/json"
+```
