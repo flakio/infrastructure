@@ -136,7 +136,7 @@
       "type": "DOCKER",
       "volumes": [],
       "docker": {
-        "image": "mesosphere/marathon-lb:latest",
+        "image": "mesosphere/marathon-lb:v1.1.4",
         "network": "HOST",
         "privileged": true,
         "parameters": [],
