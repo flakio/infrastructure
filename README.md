@@ -10,6 +10,8 @@ After provisioning a new Mesos cluster using the Azure Container Service (ACS) m
 
 The `-L` options forward local ports to endpoints and ports on the target system. Mesos master is not listening on local host so we need to use the master IP address instead. The `-A` option enables agent forwarding and allows us to connect to other systems in the cluster.
 
+Current deployments of ACS mesos orchestrator include a proxy for connecting to the various framework UI.  We only need to forward one port using the following `ssh -L 8080:localhost:80 -N trent@trentestmgmt.westus.cloudapp.azure.com -p 2200`, and then we can connect to the various frameworks using `http://localhost:8080/marathon` for example.
+
 ## Marathon-lb
 A marathon-lb instance needs to be deployed to handle incoming traffic. We will deploy two instances in the load balancer and rely on the fact that the Azure load balancer will remove instances from load balancer rotation that do not have a gateway on them. We still need to be careful that we do not unintentionally expose another service on these LB ports.
 
