@@ -3,7 +3,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "flakio/gateway:10",
+      "image": "flakio/gateway:11",
       "privileged": false,
       "network": "BRIDGE",
       "portMappings": [
@@ -18,5 +18,6 @@
   "instances": 2,
   "cpus": 0.1,
   "mem": 128,
-  "constraints": [["hostname", "UNIQUE"], ["public_ip", "CLUSTER", "true"]]
+  "constraints": [["hostname", "UNIQUE"]],
+  "acceptedResourceRoles": ["slave_public"]
 }
