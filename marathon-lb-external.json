@@ -154,6 +154,6 @@
     "labels": {
     },
     "acceptedResourceRoles": [
-      "public_slave"
+      "slave_public"
     ]
 }
