@@ -19,11 +19,17 @@ The following command can be used to deploy marathon-lb in the cluster. Run the 
 ```
 curl https://raw.githubusercontent.com/flakio/infrastructure/master/marathon-lb.json | curl -qs -XPOST localhost:8080/marathon/v2/apps -d@- -H "Content-Type: application/json"
 ```
-### services
+### services (with marathon-lb deployments)
 - 10000 frontend
 - 10001 catalog service
 - 10002 order service
 - 10003 order service database
+
+### services (with minuteman deployments)
+- 192.168.1.1:80 frontend
+- 192.168.2.1:80 catalog service
+- 192.168.3.1:80 order service
+- 192.168.3.2:80 order service database
 
 ## Gateway
 An NGINX gateway is used for routing external traffic from the Azure load balancers to the correct internal marathon-lb service port. We will deploy two instances in the load balancer and rely on the fact that the Azure load balancer will remove instances from load balancer rotation that do not have a gateway on them.
