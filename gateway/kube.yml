@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flakio-gateway
+  labels:
+    app: flakio-gateway
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30000
+    port: 80
+    protocol: TCP
+    targetPort: 80
+
+  selector:
+    app: flakio-gateway
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flakio-gateway
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flakio-gateway
+    spec:
+      containers:
+      - name: flakio-gateway
+        image: flakio/gateway:kube2
+        ports:
+        - containerPort: 80
