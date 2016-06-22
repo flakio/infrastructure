@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: flakio-gateway
-        image: flakio/gateway:kube2
+        image: flakio/gateway:k1
         ports:
         - containerPort: 80
