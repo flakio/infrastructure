@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: flakio-gateway
-        image: flakio/gateway:k1
+        image: flakio/gateway:k3
         ports:
         - containerPort: 80
